@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Messages - Gemini x Siquijor Folklore Chat</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+  body{background:#0a0a12;color:#fff;padding:14px}
+  .wrap{max-width:650px;margin:auto}
+  .header{text-align:center;background:linear-gradient(135deg,#7a00ff,#ff00a8);padding:18px;border-radius:18px}
+  .header h1{font-size:24px}
+  .chat{background:#121833;border-radius:16px;padding:14px;margin:14px 0;min-height:400px}
+  .bubble{max-width:85%;padding:11px 14px;border-radius:16px;margin:8px 0;line-height:1.5;font-size:15px}
+  .me{background:#00ff88;color:#000;margin-left:auto;border-bottom-right-radius:4px}
+  .gemini{background:#2a3555;margin-right:auto;border-bottom-left-radius:4px}
+  .gemini b{color:#ffe600}
+  input{width:100%;padding:13px;border-radius:12px;border:2px solid #7a00ff;background:#222;color:#fff;font-size:15px;margin-top:8px}
+  button{padding:11px 14px;border:none;border-radius:10px;font-weight:bold;cursor:pointer;margin:4px}
+  .btn{background:#ffe600}.btn2{background:#00ffcc}.btn3{background:#ff3b6b;color:#fff}
+  .note{background:#1e2a4a;padding:12px;border-radius:12px;margin:10px 0;font-size:13px;opacity:.9}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <h1>💬 MESSAGES - GOOGLE GEMINI</h1>
+    <p>Topic: Siquijor Love Potions - Folklore, Beliefs & Consent</p>
+    <p style="font-size:12px;opacity:.8">Fictional / Educational Chat Simulator - Hindi ito real instruction</p>
+  </div>
+
+  <div class="chat" id="chatBox">
+    <div class="bubble me">Gemini, totoo ba yung kwento sa Siquijor about love potions?</div>
+    <div class="bubble gemini">Sa Siquijor, sikat talaga yung <b>folklore ng gayuma at healing</b>. Maraming mananambal at faith healers doon. Pero sa kwento pa lang, hindi siya proven science — belief system siya na pinapasa-pasa.</div>
+    <div class="bubble me">Bakit daw bawal dalhin lagi, bawal mabasag, bawal maubos?</div>
+    <div class="bubble gemini">Sa folklore, ang paniniwala ay <b>once na mabasag o mawala, mawawala rin daw yung bisa</b>. Kaya daw tinatago at iniingatan. Pero sa totoong buhay, mas importante yung <b>privacy at respeto</b> — hindi mo dapat itago yung pangalan ng ibang tao sa bote nang hindi nila alam.</div>
+    <div class="bubble me">Ano mas nauuna? Sulat pangalan o lagay ng perfume?</div>
+    <div class="bubble gemini">Sa mga kwento, iba-iba yung version. Walang isang tamang order. Ang mas mahalagang tanong ay: <b>May consent ba yung tao?</b> Kung wala, hindi siya love — manipulation yun.</div>
+    <div class="bubble me">Pano kung isa-isa lang, may consent daw?</div>
+    <div class="bubble gemini">Kung may <b>clear, free, at enthusiastic consent</b> — ibig sabihin alam nila, naiintindihan nila, at pumayag sila nang walang pressure — ibang usapan yun. Pero kung sikreto at hindi nila alam, hindi yun consent. <b>Permanent love hindi nakukuha sa gayuma, nakukuha sa respeto, tiwala, at komunikasyon.</b></div>
+    <div class="bubble me">Effective pa ba sa afterlife kung patay na?</div>
+    <div class="bubble gemini">Walang scientific evidence na tumatalab ang gayuma after death. Sa folklore, iba-iba yung paniniwala per lugar, pero sa real life, <b>pag wala na yung tao, tapos na rin yung relationship</b>. Ang naiiwan ay alaala at respeto, hindi spell.</div>
+  </div>
+
+  <div class="note">
+    <b>⚠️ Important Note:</b> Huwag maglagay ng totoong pangalan + birthdate ng ibang tao sa kahit anong gayuma / potion / papel. Kahit folklore lang, pwede siyang maging harassment at invasion of privacy. Kung gusto mo ng love, mas maangas yung direct, honest, at may consent.
+  </div>
+
+  <input id="msgInput" placeholder="Type mo tanong mo kay Gemini...">
+  <div style="text-align:center">
+    <button class="btn" onclick="sendMsg()">Send ➤</button>
+    <button class="btn2" onclick="speakLast()">🔊 Play Audio</button>
+    <button class="btn3" onclick="clearChat()">Clear</button>
+  </div>
+
+  <div style="text-align:center;margin-top:12px">
+    <button class="btn" onclick="askPreset('Ano ba talaga ang Siquijor?')">Ano ba Siquijor?</button>
+    <button class="btn" onclick="askPreset('Ano ang consent?')">Ano ang consent?</button>
+    <button class="btn" onclick="askPreset('Paano mag-move on ng healthy?')">Paano mag-move on?</button>
+  </div>
+</div>
+
+<script>
+let answers = {
+  "siquijor": "Ang Siquijor ay island sa Philippines na kilala sa mystic, healing, at folklore. Marami doon na mananambal na gumagamit ng herbs. Pero hindi lahat ng taga-Siquijor ay manggagayuma — stereotype lang yun. Mas kilala sila sa hospitality at magagandang beaches.",
+  "consent": "Consent = alam niya, naiintindihan niya, at pumayag siya ng kusa, walang takot, walang pressure, at pwede niya bawiin anytime. Kung sikreto mo lang ginawa, hindi yun consent.",
+  "move": "Healthy move on: 1. I-block mo muna yung ex kung masakit pa. 2. Focus sa thesis, gym, friends. 3. Huwag habulin yung may third party. 4. Kung gusto mo ng bagong jowa, ligawan mo ng diretso at honest — mas maangas yun kesa gayuma.",
+  "default": "Sa folklore ng Siquijor, maraming version ng kwento. Pero sa totoong buhay, walang perfume, cologne, o body mist na makakapagpilit sa isang tao na mahalin ka. Ang totoong love ay choice, hindi spell."
+};
+function addBubble(text, who){
+  let box=document.getElementById('chatBox');
+  let d=document.createElement('div');
+  d.className='bubble '+who;
+  d.textContent=text;
+  box.appendChild(d);
+  box.scrollTop=box.scrollHeight;
+  return text;
+}
+function speakLast(){
+  let bubbles=document.querySelectorAll('.gemini');
+  let last=bubbles[bubbles.length-1]?.textContent||"Hello";
+  try{ speechSynthesis.cancel(); let u=new SpeechSynthesisUtterance(last); u.rate=1; speechSynthesis.speak(u);}catch(e){}
+}
+function sendMsg(){
+  let inp=document.getElementById('msgInput');
+  let val=inp.value.trim(); if(!val) return;
+  addBubble(val,'me');
+  inp.value="";
+  setTimeout(()=>{
+    let low=val.toLowerCase();
+    let reply = low.includes('siquijor') ? answers.siquijor : low.includes('consent') ? answers.consent : low.includes('move')||low.includes('ex') ? answers.move : answers.default;
+    addBubble(reply,'gemini');
+    try{ speechSynthesis.cancel(); let u=new SpeechSynthesisUtterance(reply); speechSynthesis.speak(u);}catch(e){}
+  },600);
+}
+function askPreset(q){ document.getElementById('msgInput').value=q; sendMsg(); }
+function clearChat(){ document.getElementById('chatBox').innerHTML=""; }
+document.getElementById('msgInput').addEventListener('keydown',e=>{ if(e.key==='Enter') sendMsg(); });
+</script>
+</body>
+</html>
